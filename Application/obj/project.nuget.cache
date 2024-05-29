@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "q8Ksk8E+HH1X/VsaaY5dkSp6P7nebzL+JQ7a5f/Oo91QAil5zEUj3S66JHXBzXIbkLCZCIKiImMLhYWUJdTm1w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shuhs\\RiderProjects\\SibersTestTask\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shuhs\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.11\\microsoft.netcore.app.ref.6.0.11.nupkg.sha512",
+    "C:\\Users\\shuhs\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.11\\microsoft.windowsdesktop.app.ref.6.0.11.nupkg.sha512",
+    "C:\\Users\\shuhs\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.11\\microsoft.aspnetcore.app.ref.6.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

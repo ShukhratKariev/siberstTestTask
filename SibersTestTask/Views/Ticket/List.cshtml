@@ -1,0 +1,62 @@
+@model SibersTestTask.Models.Tickets.TicketListViewModel
+
+@{
+Layout = "_Layout";
+}
+
+
+<h2>List of tickets</h2>
+<a class="btn btn-primary" asp-action="Add">Add a ticket</a>
+
+<form method="get" asp-action="List">
+
+    <div class="form-group">
+        <label asp-for="TicketSearchArguments" class="form-label">Ticket Id</label>
+        <input type="number" asp-for="TicketSearchArguments.Id" class="form-control"/>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="TicketSearchArguments.Name" class="form-label">Ticket Name</label>
+        <input type="text" asp-for="TicketSearchArguments.Name" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="TicketSearchArguments.Comment" class="form-label">Comment</label>
+        <input type="text" asp-for="TicketSearchArguments.Comment" class="form-control"/>
+    </div>
+    <div>
+        <label asp-for="TicketSearchArguments.Status" class="form-label">Status</label>
+        <input type="text" asp-for="TicketSearchArguments.Status" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="TicketSearchArguments.Priority" class="form-label">Priority</label>
+        <input type="text" asp-for="TicketSearchArguments.Priority" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+
+<h2>List of tickets</h2>
+<a class="btn btn-primary" asp-action="List">Apply Filter</a>
+<table class="table table-hover">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Comment</th>
+    <th>Actions</th>
+
+    </thead>
+    <tbody>
+    @foreach (var ticket in Model.Tickets)
+    {
+    <tr>
+        <td>@ticket.Id</td>
+        <td>@ticket.Name</td>
+        <td>@ticket.Comment</td>
+        <td>
+            <a class="btn btn-info" role="button" asp-action="Details" asp-route-id="@ticket.Id">Details</a>
+            <a class="btn btn-info" role="button" asp-action="Edit" asp-route-id="@ticket.Id">Edit</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

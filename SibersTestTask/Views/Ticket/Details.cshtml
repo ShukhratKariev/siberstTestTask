@@ -1,0 +1,49 @@
+@model SibersTestTask.Models.Tickets.TicketDetailsViewModel
+
+@{
+ViewBag.Title = "Employee list";
+Layout = "_Layout";
+var ticket = Model.Ticket;
+}
+
+<h2>Employee details</h2>
+<button class="btn btn-danger" id="delete-btn">Delete</button>
+@* <a asp-action="Edit" asp-route-id="@project.Id" class="btn btn-info" >Edit</a> *@
+
+
+<dl class="row">
+
+    <dt class="col-sm-3">Id</dt>
+    <dd class="col-sm-9">@ticket.Id</dd>
+
+
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">@ticket.Name</dd>
+
+    <dt class="col-sm-3">Comment</dt>
+    <dd class="col-sm-9">@ticket.Comment</dd>
+
+
+    <dt class="col-sm-3">Priority</dt>
+    <dd class="col-sm-9">@ticket.Priority</dd>
+
+    <dt class="col-sm-3">Status</dt>
+    <dd class="col-sm-9">@ticket.Status</dd>
+
+    <dt class="col-sm-3">Creator</dt>
+    <dd class="col-sm-9">@ticket.Creator.GetFullName()</dd>
+</dl>
+
+<script>
+    const deleteBtn = document.getElementById("delete-btn");
+    deleteBtn.onclick = function(event) {
+        const isOk = confirm('Are you sure about that?');
+        if (isOk) {
+            fetch("@Url.Action("Delete")" + "/@ticket.Id", {
+                method: 'DELETE'})
+                .then((response) => {
+                    window.location.replace("@Url.Action("List")");
+                });
+        }
+    };
+</script>
